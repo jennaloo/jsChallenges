@@ -1,63 +1,70 @@
-//1. Write a function that returns the first duplicate it finds in an array.
+////1. Write a function that returns the first duplicate it finds in an array.
+//
 
-var myArray = [1, 0, 10, 0, 3, 2];
-
-function findDuplicate(someArray) {
+var myDupArray = [5, 0, 6, 6, 4, 3, 1];
+//finds first duplicates next to eachother
+//should find duplicates any distance apart
+//nested for loops?
+function findFirstDup(someArray) {
     for (i = 0; i < someArray.length; i++) {
-        //if they are 1 apart (starts it)
         if (someArray[i] == someArray[i + 1]) {
-            console.log(someArray[i + 1]);
-            break;
-            // if they are 2 apart
-        } else if (someArray[i] == someArray[i + 2]) {
-            console.log(someArray[i + 2]);
-            break;
-            // if they are 3 apart
-        } else if (someArray[i] == someArray[i + 3]) {
-            console.log(someArray[i + 3]);
-            break;
-            //if they are 4 away
-        } else if (someArray[i] == someArray[i + 4]) {
-            console.log(someArray[i + 4]);
-            break;
-            //if they are 5 away
-        } else if (someArray[i] == someArray[i + 5]) {
-            console.log(someArray[i + 5]);
-            break;
-            //if they are 6 apart (current string length)
-        } else if (someArray[i] == someArray[i + 6]) {
-            console.log(someArray[i + 6]);
-            break;
+            return someArray[i];
         }
-
     }
-};
+}
 
-findDuplicate(myArray);
+//2. Reverse a String without Array Methods
+myString = "Jenna";
+var newArray = [];
 
-//2. Write a function that works like the javascript .join () method.
+for (var i = myString.length; i > 0; i--) {
+    newArray[myString.length - i] = myString[i - 1];
+}
 
-//var fruits = ["banana", "orange", "apple", "mango", "pineapple"];
-//var newString;
-//
-//function vanillaJoin(someArray) {
-//
-//    for (i = 0; i < someArray.length; i++) {
-//        var arrayItem = someArray[i];
-//        newString += arrayItem + ",";
-//    }
-//
-//    console.log(newString);
-//}
-//
-//vanillaJoin(fruits);
+function vanillaJoin(someArray) {
+    var newString = "";
+    for (i = 0; i < someArray.length; i++) {
+        var arrayItem = someArray[i];
+        newString += arrayItem;
+    }
+    console.log(newString);
+}
+
+vanillaJoin(newArray);
 
 //3. Given n people, find total number of pairs can be formed.  
 
+function factorialize(num) {
+    if (num < 0)
+        return -1;
+    else if (num == 0)
+        return 1;
+    else {
+        return (num * factorialize(num - 1));
+    }
+}
 
+function combinations(n) {
+    var num = factorialize(n);
+    var denom = factorialize(2) * factorialize(n - 2);
+    return num / denom;
+}
 
 //4. Write a function that takes in a radius and returns the area of a circle.  
 
-//5. Reverse an array without using the built in reverse functionality.  
+function area(radius) {
+    area = Math.PI * radius * radius;
+    return area;
+}
+
 
 //6. Reverse an array in place without using the reverse functionality and without creating a new array.
+
+myArray = [1, 2, 3, 4];
+
+function reverse(someArray) {
+    for (var i = myArray.length; i > 0; i--) {
+        myArray[i - 1] = someArray[myArray.length - i];
+    }
+    return myArray;
+};
